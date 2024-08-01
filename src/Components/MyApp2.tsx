@@ -45,7 +45,7 @@ const MyApp: React.FC = () => {
             items={items2}
           />
         </Sider>
-        <Layout className=''>
+        <Layout>
           <Content className='p-[150px] m-0 min-h-96'>
             <Search placeholder="Código de Rastreio" enterButton="Search" size="large" className='border-2 border-black rounded-md text-black'/>
           </Content>
