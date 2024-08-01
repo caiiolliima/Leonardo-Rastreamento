@@ -1,6 +1,6 @@
 import '@radix-ui/themes/styles.css';
 import { Theme } from '@radix-ui/themes';
-import MyApp from './Components/MyApp2';
+import SideBar from './Components/SideBar';
 
 function App() {
 
@@ -8,7 +8,7 @@ function App() {
     <>
       <div>
         <Theme>
-          <MyApp />
+          <SideBar />
         </Theme>
       </div>
     </>

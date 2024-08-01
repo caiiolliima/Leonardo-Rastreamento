@@ -3,6 +3,7 @@ import { LaptopOutlined, NotificationOutlined, UserOutlined } from '@ant-design/
 import type { MenuProps } from 'antd';
 import { Layout, Menu, theme } from 'antd';
 import {Input} from 'antd';
+import { Link } from 'react-router-dom';
 
 const { Content, Sider } = Layout;
 
@@ -28,7 +29,7 @@ const items2: MenuProps['items'] = [UserOutlined, LaptopOutlined, NotificationOu
 
 const { Search } = Input;
 
-const MyApp: React.FC = () => {
+const SideBar: React.FC = () => {
   const {
     token: { colorBgContainer, },
   } = theme.useToken();
@@ -47,7 +48,7 @@ const MyApp: React.FC = () => {
         </Sider>
         <Layout>
           <Content className='p-[150px] m-0 min-h-96'>
-            <Search placeholder="Código de Rastreio" enterButton="Search" size="large" className='border-2 border-black rounded-md text-black'/>
+            <Link to={"/MeuBar"}><Search placeholder="Código de Rastreio" enterButton="Search" size="large" className='border-2 border-black rounded-md text-black'/></Link>
           </Content>
         </Layout>
       </Layout>
@@ -55,4 +56,4 @@ const MyApp: React.FC = () => {
   );
 };
 
-export default MyApp;
+export default SideBar;
