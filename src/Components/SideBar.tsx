@@ -15,7 +15,7 @@ const SideBar = () => {
         <img src='/src/images/logo.svg' className='w-12 h-12'/>
           <span className='font-bold'>NerdBot Rastreio</span>
         </div>
-        <ul>
+        <ul className="flex flex-wrap gap-2">
           {
             links.map(link => <li><a href="/">{link.name}</a></li>)
           }
