@@ -1,58 +1,27 @@
-import React from 'react';
-import { LaptopOutlined, NotificationOutlined, UserOutlined } from '@ant-design/icons';
-import type { MenuProps } from 'antd';
-import { Layout, Menu, theme } from 'antd';
-import {Input} from 'antd';
-import { Link } from 'react-router-dom';
+const SideBar = () => {
 
-const { Content, Sider } = Layout;
-
-const items2: MenuProps['items'] = [UserOutlined, LaptopOutlined, NotificationOutlined].map(
-  (icon, index) => {
-    const key = String(index + 1);
-
-    return {
-      key: `sub${key}`,
-      icon: React.createElement(icon),
-      label: `Menu ${key}`,
-
-      children: new Array(1).fill(null).map((_, j) => {
-        const subKey = index * 1 + j + 1;
-        return {
-          key: subKey,
-          label: `SubMenus${subKey}`,
-        };
-      }),
-    };
-  },
-);
-
-const { Search } = Input;
-
-const SideBar: React.FC = () => {
-  const {
-    token: { colorBgContainer, },
-  } = theme.useToken();
+  const links = [
+    {name: "Login", href:"/"},
+    {name: "Cadastro", href:"/"},
+    {name: "Perfil", href:"/"},
+    {name: "Logout", href:"/"},
+    {name: "Meu Rastreio", href:"/"},
+  ]
 
   return (
-    <Layout className='bg-black h-screen'>
-      <Layout>
-        <Sider width={200} style={{ background: colorBgContainer }}>
-          <Menu
-            mode="inline"
-            defaultSelectedKeys={['1']}
-            defaultOpenKeys={['sub1']}
-            style={{ height: '100%', borderRight: 0 }}
-            items={items2}
-          />
-        </Sider>
-        <Layout>
-          <Content className='p-[150px] m-0 min-h-96'>
-            <Link to={"/MeuBar"}><Search placeholder="Código de Rastreio" enterButton="Search" size="large" className='border-2 border-black rounded-md text-black'/></Link>
-          </Content>
-        </Layout>
-      </Layout>
-    </Layout>
+    <div className='shadow-lg min-w-dvh'>
+      <div className='md:px-10 py-4 px-7'>
+        <div className='flex gap-4 text-2xl items-center'>
+        <img src='/src/images/logo.svg' className='w-12 h-12'/>
+          <span className='font-bold'>NerdBot Rastreio</span>
+        </div>
+        <ul>
+          {
+            links.map(link => <li><a href="/">{link.name}</a></li>)
+          }
+        </ul>
+      </div>
+    </div>
   );
 };
 
